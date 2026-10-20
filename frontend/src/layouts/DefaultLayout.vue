@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="relative h-screen overflow-hidden md:flex">
     <!-- Mobile Menu Header -->
     <div class="bg-paper-sidebar text-gray-100 flex justify-between md:hidden shrink-0">
@@ -8,7 +8,7 @@
       </button>
     </div>
 
-    <!-- Sidebar (Expansível / Recolhível) -->
+    <!-- Sidebar (ExpansÃ­vel / RecolhÃ­vel) -->
     <aside 
       :class="[
         sidebarOpen ? 'translate-x-0' : '-translate-x-full',
@@ -33,16 +33,25 @@
           <div class="border-t border-white border-opacity-20"></div>
         </div>
 
-        <!-- Links de Navegação -->
+        <!-- Links de NavegaÃ§Ã£o -->
         <nav class="space-y-2">
           <router-link 
             to="/" 
-            :title="isCollapsed ? 'Início' : ''"
+            :title="isCollapsed ? 'II Jornada de Gestão' : ''"
+            :class="[isCollapsed ? 'justify-center px-2' : 'px-4']"
+            class="flex items-center space-x-3 py-2.5 rounded transition duration-200 hover:bg-paper-active-link hover:text-white"
+          >
+            <ChartBarIcon class="h-6 w-6 shrink-0 text-blue-300"/>
+            <span v-if="!isCollapsed" class="truncate font-semibold">II Jornada</span>
+          </router-link>
+          <router-link 
+            to="/" 
+            :title="isCollapsed ? 'InÃ­cio' : ''"
             :class="[isCollapsed ? 'justify-center px-2' : 'px-4']"
             class="flex items-center space-x-3 py-2.5 rounded transition duration-200 hover:bg-paper-active-link hover:text-white"
           >
             <HomeIcon class="h-6 w-6 shrink-0"/>
-            <span v-if="!isCollapsed" class="truncate">Início</span>
+            <span v-if="!isCollapsed" class="truncate">InÃ­cio</span>
           </router-link>
 
           <router-link 
@@ -69,20 +78,20 @@
           <router-link 
             v-if="authStore.isAuthenticated" 
             to="/configuracoes" 
-            :title="isCollapsed ? 'Configurações' : ''"
+            :title="isCollapsed ? 'ConfiguraÃ§Ãµes' : ''"
             :class="[isCollapsed ? 'justify-center px-2' : 'px-4']"
             class="flex items-center space-x-3 py-2.5 rounded transition duration-200 hover:bg-paper-active-link hover:text-white"
           >
             <Cog6ToothIcon class="h-6 w-6 shrink-0"/>
-            <span v-if="!isCollapsed" class="truncate">Configurações</span>
+            <span v-if="!isCollapsed" class="truncate">ConfiguraÃ§Ãµes</span>
           </router-link>
         </nav>
       </div>
 
-      <!-- Rodapé de Versão da Sidebar -->
+      <!-- RodapÃ© de VersÃ£o da Sidebar -->
       <div v-if="!isCollapsed" class="px-4 pt-3 pb-1 border-t border-white/10 text-xs text-gray-400 mt-auto truncate transition-opacity duration-200">
         <p class="font-semibold text-gray-200 truncate">{{ APP_NAME }}</p>
-        <p class="text-[11px] text-gray-400 truncate">Versão {{ APP_VERSION }} | HC-UFPE</p>
+        <p class="text-[11px] text-gray-400 truncate">VersÃ£o {{ APP_VERSION }} | HC-UFPE</p>
       </div>
       <div v-else class="px-2 pt-3 pb-1 border-t border-white/10 text-[10px] text-center text-gray-400 mt-auto">
         v{{ APP_VERSION }}
@@ -120,6 +129,7 @@
 import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import {
+  ChartBarIcon,
   HomeIcon,
   CubeIcon,
   DocumentTextIcon,
