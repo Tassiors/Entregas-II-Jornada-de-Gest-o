@@ -101,8 +101,9 @@ async def validation_exception_handler(request, exc: RequestValidationError):
 
 
 # Serve o frontend Vue 3 empacotado (se o build existir)
-assets_dir = os.path.join("src", "static", "dist", "assets")
-static_dir = os.path.join("src", "static", "dist")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+assets_dir = os.path.join(BASE_DIR, "static", "dist", "assets")
+static_dir = os.path.join(BASE_DIR, "static", "dist")
 
 if os.path.exists(assets_dir):
     app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
@@ -126,7 +127,7 @@ async def serve_frontend(full_path: str):
     if full_path.startswith("api"):
         raise HTTPException(status_code=404, detail="API route not found")
     
-    index_path = os.path.join("src", "static", "dist", "index.html")
+    index_path = os.path.join(BASE_DIR, "static", "dist", "index.html")
     if os.path.exists(index_path):
         return FileResponse(index_path)
     return {"error": "Frontend build not found"}
