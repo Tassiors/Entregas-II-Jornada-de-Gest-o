@@ -103,9 +103,31 @@ async def logout(response: Response, request: Request, db: AsyncSession = Depend
     response.delete_cookie(key="refresh_token", httponly=True, samesite="lax", secure=True)
     return {"message": "Logged out successfully"}
 
+from sqlalchemy import select
+from ..models.usuario_sistema import UsuarioSistema
+
 @router.get("/users/me")
-async def read_users_me(current_user: dict = Depends(auth_handler.decode_token)):
+async def read_users_me(
+    current_user: dict = Depends(auth_handler.decode_token),
+    db: AsyncSession = Depends(get_app_db_session),
+):
     """
-    Returns the current user's information.
+    Returns the current user's information enriched with local RBAC profile and assigned project.
     """
+    username = current_user.get("username", "")
+    stmt = select(UsuarioSistema).where(UsuarioSistema.username == username, UsuarioSistema.ativo == True)
+    res = await db.execute(stmt)
+    user_db = res.scalars().first()
+
+    if user_db:
+        current_user["perfil"] = user_db.perfil
+        current_user["projeto_atribuido"] = user_db.projeto_atribuido
+    else:
+        if "GLO-SEC-HCPE-SETISD" in current_user.get("groups", []) or username == "admin":
+            current_user["perfil"] = "ADMINISTRADOR"
+            current_user["projeto_atribuido"] = None
+        else:
+            current_user["perfil"] = "CONSULTA"
+            current_user["projeto_atribuido"] = None
+
     return current_user

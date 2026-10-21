@@ -12,6 +12,8 @@ interface User {
   title?: string[];
   department?: string[];
   employeeNumber?: string[];
+  perfil?: string;
+  projeto_atribuido?: string | null;
 }
 
 export const useAuthStore = defineStore('auth', () => {
@@ -21,8 +23,10 @@ export const useAuthStore = defineStore('auth', () => {
   const isAuthenticated = computed(() => !!accessToken.value);
   const isAdmin = computed(() => {
     const ADMIN_GROUP = "GLO-SEC-HCPE-SETISD"; 
-    return user.value?.groups?.includes(ADMIN_GROUP) || false;
+    return user.value?.groups?.includes(ADMIN_GROUP) || user.value?.perfil === 'ADMINISTRADOR' || user.value?.username === 'admin' || false;
   });
+  const isGerenteProjeto = computed(() => user.value?.perfil === 'GERENTE_PROJETO');
+  const assignedProject = computed(() => user.value?.projeto_atribuido ?? null);
 
   function setToken(token: string) {
     accessToken.value = token;
@@ -105,6 +109,8 @@ export const useAuthStore = defineStore('auth', () => {
     user, 
     isAuthenticated, 
     isAdmin, 
+    isGerenteProjeto,
+    assignedProject,
     login, 
     logout,
     setToken,

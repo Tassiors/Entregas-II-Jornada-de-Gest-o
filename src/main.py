@@ -1,4 +1,4 @@
-﻿from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from starlette.responses import FileResponse
@@ -10,6 +10,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from .resources.database import DatabaseManager, Base
+from .models.audit_log import AuditLog
+from .models.formulario_resposta import FormularioResposta
+from .models.usuario_sistema import UsuarioSistema
+from .models.configuracao_bimestre import ConfiguracaoBimestre, init_default_bimestres
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -34,6 +38,11 @@ async def lifespan(app: FastAPI):
     async with app.state.app_db.engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
     print("App SQLite tables checked/created.")
+
+    # Inicializar bimestres padrão se não existirem
+    async with app.state.app_db.async_session_maker() as session:
+        await init_default_bimestres(session)
+    print("Configuração de bimestres inicializada.")
 
     yield
 

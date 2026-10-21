@@ -1,6 +1,6 @@
-﻿<template>
+<template>
   <div class="min-h-screen bg-slate-50 text-slate-800 pb-12">
-    <!-- Header Corporativo -->
+    <!-- Header Corporativo (Sem o botão 'Preencher Acompanhamento' conforme item 11) -->
     <header class="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white shadow-lg">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -11,42 +11,28 @@
             <div>
               <div class="flex items-center gap-2">
                 <span class="text-xs font-bold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-blue-500/30 text-blue-200 border border-blue-400/30">
-                  HC-UFPE · EBSERH · SETISD
+                  HC-UFPE · EBSERH · UGERC
                 </span>
                 <span v-if="store.lastSync" class="text-xs text-blue-200/80">
-                  Sincronizado: {{ store.lastSync }}
+                  Atualizado: {{ store.lastSync }}
                 </span>
               </div>
               <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mt-1">
                 II Jornada de Gestão HC-UFPE
               </h1>
               <p class="text-sm text-blue-100 font-medium">
-                Painel Corporativo de Acompanhamento de Entregas Estratégicas · Ciclo 2026–2027
+                Painel Corporativo de Acompanhamento de Entregas Estratégicas · Unidade de Gestão da Estratégia, de Riscos e Controles Internos - UGERC
               </p>
             </div>
           </div>
 
-          <!-- Filtro de Período e Botão de Sync -->
-          <div class="flex flex-wrap items-center gap-3">
-            <div class="flex items-center bg-white/10 backdrop-blur-md rounded-xl p-1 border border-white/20">
-              <span class="text-xs text-blue-200 px-3 font-semibold">Período:</span>
-              <select
-                :value="store.selectedPeriod"
-                @change="onPeriodChange($event)"
-                class="bg-blue-950/80 text-white text-xs font-semibold rounded-lg px-3 py-2 outline-none border border-blue-400/30 hover:bg-blue-900 transition-colors cursor-pointer"
-              >
-                <option value="all">Todos os períodos</option>
-                <option v-for="(label, code) in store.periods" :key="code" :value="code">
-                  {{ label }}
-                </option>
-              </select>
-            </div>
-
+          <!-- Botão de Atualização -->
+          <div class="flex items-center">
             <button
-              @click="store.syncData()"
+              @click="handleManualSync"
               :disabled="store.syncing"
               class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow-md transition-all duration-200 disabled:opacity-50 cursor-pointer"
-              title="Forçar sincronização com a API do REDCap"
+              title="Recarregar dados do banco local e REDCap"
             >
               <svg
                 :class="['w-4 h-4', { 'animate-spin': store.syncing }]"
@@ -61,7 +47,7 @@
                   d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
                 />
               </svg>
-              <span>{{ store.syncing ? 'Atualizando...' : 'Atualizar REDCap' }}</span>
+              <span>{{ store.syncing ? 'Atualizando...' : 'Atualizar Dados' }}</span>
             </button>
           </div>
         </div>
@@ -69,12 +55,12 @@
     </header>
 
     <!-- Conteúdo Principal -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-8">
       <!-- Loading State -->
       <div v-if="store.loading && !store.dashboard" class="bg-white rounded-2xl p-12 text-center shadow-lg border border-slate-200">
         <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-blue-600 border-t-transparent mb-4"></div>
         <h3 class="text-lg font-bold text-slate-700">Carregando dados da II Jornada...</h3>
-        <p class="text-sm text-slate-500">Conectando à API do REDCap EBSERH</p>
+        <p class="text-sm text-slate-500">Consolidando informações dos projetos estratégicos</p>
       </div>
 
       <!-- Error State -->
@@ -89,145 +75,107 @@
       </div>
 
       <div v-else-if="store.dashboard" class="space-y-6">
-        <!-- Linha de KPIs Executivos & Matriz Geral de Entregas -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <!-- Card 1: Entregas Concluídas -->
-          <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md transition-shadow">
-            <div class="flex items-center justify-between">
-              <div>
-                <span class="text-xs font-semibold tracking-wider uppercase text-emerald-600">Entregas Concluídas</span>
-                <div class="text-4xl font-black text-slate-800 mt-1">
-                  {{ store.summary.completed }}
-                </div>
-                <p class="text-xs text-slate-500 mt-1">
-                  De {{ store.summary.total_deliveries }} entregas registradas
-                </p>
-              </div>
-              <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl font-bold border border-emerald-100">
-                ✅
-              </div>
+        <!-- Matriz de Resumo Executivo por Projeto (Cards Seletores) -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/90">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-100 gap-3">
+            <div>
+              <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                <span>🎯</span> Matriz Geral de Entregas dos 5 Projetos
+              </h2>
+              <p class="text-xs text-slate-500 mt-0.5">
+                Visão consolidada da conclusão das entregas E1 e E2 (efeito cascata bimestral aplicado)
+              </p>
             </div>
-            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-              <span>Status geral</span>
-              <span class="font-bold text-emerald-700">Registros validados</span>
+            <div class="flex items-center gap-3 text-xs">
+              <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Concluída</span>
+              <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span> Em andamento</span>
             </div>
           </div>
 
-          <!-- Card 2: Taxa de Conclusão -->
-          <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md transition-shadow">
-            <div class="flex items-center justify-between">
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mt-4">
+            <div
+              v-for="p in store.matrix"
+              :key="p.proj_key"
+              @click="store.setProject(p.proj_key)"
+              :class="[
+                'p-4 rounded-xl border transition-all cursor-pointer flex flex-col justify-between',
+                store.selectedProjectKey === p.proj_key
+                  ? 'border-blue-600 bg-blue-50/40 ring-2 ring-blue-500/20 shadow-sm'
+                  : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/60'
+              ]"
+            >
               <div>
-                <span class="text-xs font-semibold tracking-wider uppercase text-blue-600">Taxa de Conclusão</span>
-                <div class="text-4xl font-black text-blue-700 mt-1">
-                  {{ store.summary.completion_rate }}%
-                </div>
-                <p class="text-xs text-slate-500 mt-1">Progresso global da Jornada</p>
-              </div>
-              <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl font-bold border border-blue-100">
-                📊
-              </div>
-            </div>
-            <!-- Progress Bar -->
-            <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden mt-4">
-              <div
-                class="bg-gradient-to-r from-blue-600 to-emerald-500 h-full rounded-full transition-all duration-500"
-                :style="{ width: `${store.summary.completion_rate}%` }"
-              ></div>
-            </div>
-          </div>
-
-          <!-- Card 3: Matriz Resumo por Projeto -->
-          <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md transition-shadow">
-            <div class="flex items-center justify-between mb-3">
-              <h3 class="text-xs font-bold tracking-wider uppercase text-slate-600 flex items-center gap-1.5">
-                <span>🎯</span> Entregas por Projeto
-                <span class="text-[10px] text-slate-400 font-normal">
-                  ({{ store.selectedPeriod === 'all' ? 'Geral' : store.periods[store.selectedPeriod] }})
-                </span>
-              </h3>
-              <div class="flex items-center gap-2 text-[11px] text-slate-500">
-                <span class="inline-flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Ok</span>
-                <span class="inline-flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-slate-300"></span> Pendente</span>
-              </div>
-            </div>
-
-            <div class="space-y-2">
-              <div
-                v-for="p in store.matrix"
-                :key="p.proj_key"
-                class="flex items-center justify-between p-2 rounded-xl bg-slate-50/80 hover:bg-slate-100/80 transition-colors"
-              >
-                <div class="flex items-center gap-2 min-w-0">
+                <div class="flex items-center justify-between mb-2">
                   <span
-                    class="px-2 py-0.5 rounded text-[11px] font-black text-white shrink-0"
+                    class="px-2 py-0.5 rounded text-[10px] font-black text-white"
                     :style="{ backgroundColor: p.color }"
                   >
                     {{ p.code }}
                   </span>
-                  <span class="text-xs font-medium text-slate-700 truncate" :title="p.name">
-                    {{ p.short }}
-                  </span>
+                  <span class="text-base">{{ p.icon }}</span>
                 </div>
-                <div class="flex items-center gap-1.5 shrink-0 ml-2">
+                <h3 class="text-xs font-bold text-slate-800 line-clamp-2 leading-snug" :title="p.name">
+                  {{ p.short }}
+                </h3>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-200/60 flex items-center justify-between">
+                <div class="flex items-center gap-2">
                   <span
                     :class="[
-                      'w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white transition-all',
-                      p.e1_done ? 'bg-emerald-500 shadow-sm' : 'bg-slate-300 text-slate-600'
+                      'w-7 h-7 rounded-lg flex items-center justify-center text-[10px] font-bold text-white transition-all',
+                      p.e1_done ? 'bg-emerald-600 shadow-sm' : 'bg-slate-300 text-slate-600'
                     ]"
-                    :title="`E1: ${p.ent1_desc} (${p.e1_done ? 'Concluída' : 'Não concluída'})`"
+                    :title="`E1: ${p.ent1_desc}`"
                   >
                     E1
                   </span>
                   <span
                     :class="[
-                      'w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white transition-all',
-                      p.e2_done ? 'bg-emerald-500 shadow-sm' : 'bg-slate-300 text-slate-600'
+                      'w-7 h-7 rounded-lg flex items-center justify-center text-[10px] font-bold text-white transition-all',
+                      p.e2_done ? 'bg-emerald-600 shadow-sm' : 'bg-slate-300 text-slate-600'
                     ]"
-                    :title="`E2: ${p.ent2_desc} (${p.e2_done ? 'Concluída' : 'Não concluída'})`"
+                    :title="`E2: ${p.ent2_desc}`"
                   >
                     E2
                   </span>
                 </div>
+
+                <!-- Tag indicativa de metas do projeto -->
+                <span
+                  v-if="p.e1_done && p.e2_done"
+                  class="px-2 py-0.5 rounded-full text-[10px] font-black bg-emerald-100 text-emerald-800 border border-emerald-300 shadow-xs"
+                >
+                  ✅ 2/2 Metas
+                </span>
+                <span
+                  v-else-if="p.e1_done || p.e2_done"
+                  class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200"
+                >
+                  ⚡ 1/2 Concluída
+                </span>
+                <span
+                  v-else
+                  class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-slate-100 text-slate-500 border border-slate-200"
+                >
+                  ⏳ Em andamento
+                </span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Abas dos 5 Projetos -->
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden">
-          <!-- Tab Navigation -->
-          <div class="flex overflow-x-auto border-b border-slate-200 scrollbar-none bg-slate-50/50">
-            <button
-              v-for="p in store.matrix"
-              :key="p.proj_key"
-              @click="store.setProject(p.proj_key)"
-              :class="[
-                'flex items-center gap-2.5 px-6 py-4 text-xs font-bold tracking-wide whitespace-nowrap transition-all border-b-2 cursor-pointer',
-                store.selectedProjectKey === p.proj_key
-                  ? 'bg-white text-blue-900 border-blue-600 shadow-sm'
-                  : 'text-slate-500 border-transparent hover:text-slate-800 hover:bg-slate-100/60'
-              ]"
-            >
-              <span class="text-base">{{ p.icon }}</span>
-              <span
-                class="px-2 py-0.5 rounded text-[10px] font-black text-white"
-                :style="{ backgroundColor: p.color }"
-              >
-                {{ p.code }}
-              </span>
-              <span>{{ p.short }}</span>
-            </button>
-          </div>
-
-          <!-- Tab Content (Active Project) -->
+        <!-- Detalhamento do Projeto Selecionado -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200/90 overflow-hidden">
+          <!-- Conteúdo do Projeto Selecionado -->
           <div v-if="store.activeProject" class="p-6 sm:p-8 space-y-8">
-            <!-- Project Banner Header -->
+            <!-- Banner do Projeto -->
             <div
-              class="p-5 rounded-2xl bg-gradient-to-r from-slate-50 to-white border-l-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4"
+              class="p-6 rounded-2xl bg-gradient-to-r from-slate-50 via-white to-slate-50 border-l-8 shadow-sm"
               :style="{ borderLeftColor: store.activeProject.color }"
             >
               <div class="flex items-start gap-4">
-                <span class="text-3xl p-2 rounded-xl bg-white shadow-sm border border-slate-100">
+                <span class="text-3xl p-3 rounded-2xl bg-white shadow-sm border border-slate-200">
                   {{ store.activeProject.icon }}
                 </span>
                 <div>
@@ -239,27 +187,27 @@
                       {{ store.activeProject.code }}
                     </span>
                     <span class="text-xs font-bold uppercase tracking-wider text-slate-400">
-                      Projeto Estratégico
+                      Projeto Estratégico · II Jornada de Gestão
                     </span>
                   </div>
-                  <h2 class="text-lg sm:text-xl font-bold text-slate-900 mt-1">
+                  <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-1">
                     {{ store.activeProject.name }}
                   </h2>
                 </div>
               </div>
             </div>
 
-            <!-- Barra Compacta dos Bimestres -->
+            <!-- Grade dos 6 Bimestres -->
             <div class="bg-slate-50/80 rounded-2xl p-5 border border-slate-200/80">
               <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
                 <div class="flex items-center gap-2">
                   <span class="text-base">📅</span>
                   <span class="text-xs font-bold uppercase tracking-wider text-slate-700">
-                    Ciclo Bimestral (2026–2027)
+                    Acompanhamento Bimestral do Ciclo
                   </span>
                 </div>
-                <span class="text-xs font-bold text-slate-600 bg-white px-3 py-1 rounded-full border border-slate-200">
-                  {{ store.activeProject.bimonthly.filter(b => b.entregue).length }}/6 bimestres reportados
+                <span class="text-xs font-bold text-slate-700 bg-white px-3 py-1 rounded-full border border-slate-200">
+                  {{ store.activeProject.bimonthly.filter(b => b.entregue).length }} de 6 bimestres informados
                 </span>
               </div>
 
@@ -292,47 +240,83 @@
               </div>
             </div>
 
-            <!-- Cabeçalhos das Entregas Oficiais (E1 e E2) -->
+            <!-- Descrições Oficiais das Entregas (E1 e E2) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <!-- E1 -->
               <div
-                class="bg-white rounded-2xl p-5 border-t-4 shadow-sm border border-slate-200"
+                class="bg-white rounded-2xl p-5 border-t-4 shadow-sm border border-slate-200 flex flex-col justify-between"
                 :style="{ borderTopColor: store.activeProject.color }"
               >
-                <div class="flex items-center gap-2 mb-2">
-                  <span class="text-lg">📦</span>
-                  <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-800">
-                    Entrega 1
-                  </h3>
+                <div>
+                  <div class="flex items-center justify-between gap-2 mb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="text-lg">📦</span>
+                      <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-800">
+                        Entrega 1 Pactuada
+                      </h3>
+                    </div>
+                    <!-- Tag de Conclusão E1 -->
+                    <span
+                      v-if="store.activeProject.e1_done"
+                      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-emerald-100 text-emerald-800 border border-emerald-300 shadow-xs"
+                    >
+                      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                      ✅ Concluída
+                    </span>
+                    <span
+                      v-else
+                      class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-600 border border-slate-200"
+                    >
+                      ⏳ Em andamento
+                    </span>
+                  </div>
+                  <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                    {{ store.activeProject.ent1_desc }}
+                  </p>
                 </div>
-                <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
-                  {{ store.activeProject.ent1_desc }}
-                </p>
               </div>
 
               <!-- E2 -->
               <div
-                class="bg-white rounded-2xl p-5 border-t-4 shadow-sm border border-slate-200"
+                class="bg-white rounded-2xl p-5 border-t-4 shadow-sm border border-slate-200 flex flex-col justify-between"
                 :style="{ borderTopColor: store.activeProject.color2 }"
               >
-                <div class="flex items-center gap-2 mb-2">
-                  <span class="text-lg">📦</span>
-                  <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-800">
-                    Entrega 2
-                  </h3>
+                <div>
+                  <div class="flex items-center justify-between gap-2 mb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="text-lg">📦</span>
+                      <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-800">
+                        Entrega 2 Pactuada
+                      </h3>
+                    </div>
+                    <!-- Tag de Conclusão E2 -->
+                    <span
+                      v-if="store.activeProject.e2_done"
+                      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-emerald-100 text-emerald-800 border border-emerald-300 shadow-xs"
+                    >
+                      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                      ✅ Concluída
+                    </span>
+                    <span
+                      v-else
+                      class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-600 border border-slate-200"
+                    >
+                      ⏳ Em andamento
+                    </span>
+                  </div>
+                  <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                    {{ store.activeProject.ent2_desc }}
+                  </p>
                 </div>
-                <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
-                  {{ store.activeProject.ent2_desc }}
-                </p>
               </div>
             </div>
 
-            <!-- Timeline de Evolução dos Registros -->
+            <!-- Linha do Tempo de Evolução e Entregas -->
             <div class="space-y-6">
               <div class="flex items-center gap-2 border-b border-slate-200 pb-3">
                 <span class="text-lg">⏱️</span>
                 <h3 class="text-sm font-extrabold tracking-wide uppercase text-slate-800">
-                  Linha do Tempo de Evolução e Entregas
+                  Linha do Tempo de Registros e Evolução
                 </h3>
               </div>
 
@@ -354,6 +338,9 @@
                     ></div>
                     <span class="px-3 py-1 rounded-full text-xs font-bold text-white shadow-sm" :style="{ backgroundColor: store.activeProject.color }">
                       {{ item.periodo_label }}
+                    </span>
+                    <span v-if="item.usuario_registro" class="text-[11px] text-slate-400 font-mono">
+                      Registrado por: {{ item.usuario_registro }}
                     </span>
                   </div>
 
@@ -431,26 +418,37 @@
       </div>
     </main>
 
-    <!-- Rodapé Corporativo -->
+    <!-- Rodapé Corporativo com Nomenclatura UGERC (Item 12) -->
     <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 text-center text-xs text-slate-400">
       <p>Hospital das Clínicas da UFPE · Empresa Brasileira de Serviços Hospitalares (EBSERH)</p>
-      <p class="mt-1">Setor de Tecnologia da Informação e Saúde Digital — SETISD · II Jornada de Gestão 2026–2027</p>
+      <p class="mt-1">Unidade de Gestão da Estratégia, de Riscos e Controles Internos - UGERC · II Jornada de Gestão 2026–2027</p>
     </footer>
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import { useToast } from 'vue-toastification';
 import { useEntregasStore } from '../../stores/entregas';
 
+const route = useRoute();
+const toast = useToast();
 const store = useEntregasStore();
 
-function onPeriodChange(event: Event) {
-  const target = event.target as HTMLSelectElement;
-  store.setPeriod(target.value);
+async function handleManualSync() {
+  try {
+    await store.syncData();
+    toast.success('Dados atualizados com sucesso!');
+  } catch (err) {
+    toast.error('Erro ao atualizar dados do painel.');
+  }
 }
 
-onMounted(() => {
-  store.loadDashboard();
+onMounted(async () => {
+  await store.loadDashboard();
+  if (route.query.projeto) {
+    store.setProject(String(route.query.projeto));
+  }
 });
 </script>

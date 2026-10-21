@@ -21,6 +21,7 @@ JWT_SECRET = os.getenv("JWT_SECRET", "super-secret-key-change-in-production")
 JWT_EXP_HOURS = int(os.getenv("JWT_EXP_HOURS", 24))
 REFRESH_TOKEN_EXP_DAYS = int(os.getenv("REFRESH_TOKEN_EXP_DAYS", 30))
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/login")
+oauth2_scheme_optional = OAuth2PasswordBearer(tokenUrl="/api/login", auto_error=False)
 
 # --- Interface e Implementações de Provedor de Autenticação ---
 
@@ -329,6 +330,17 @@ class AuthHandler:
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token has expired")
         except jwt.InvalidTokenError:
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token")
+
+    def decode_token_optional(self, token: str | None = Depends(oauth2_scheme_optional)):
+        if not token:
+            return None
+        try:
+            if not JWT_SECRET:
+                return None
+            payload = jwt.decode(token, JWT_SECRET, algorithms=["HS256"])
+            return payload
+        except Exception:
+            return None
 
 # Instância única que será usada em toda a aplicação
 auth_handler = AuthHandler()

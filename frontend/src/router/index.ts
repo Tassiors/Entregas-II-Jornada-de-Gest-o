@@ -1,6 +1,7 @@
-﻿import { createRouter, createWebHistory, NavigationGuardNext } from 'vue-router';
+import { createRouter, createWebHistory, NavigationGuardNext } from 'vue-router';
 import { useAuthStore } from '../stores/auth';
 import PainelEntregas from '../views/entregas/PainelEntregas.vue';
+import FormularioEntregas from '../views/entregas/FormularioEntregas.vue';
 import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
 import Configuracoes from '../views/Configuracoes.vue';
@@ -17,6 +18,15 @@ const routes = [
     path: '/entregas',
     name: 'PainelEntregas',
     component: PainelEntregas,
+  },
+  {
+    path: '/formulario',
+    name: 'FormularioEntregas',
+    component: FormularioEntregas,
+  },
+  {
+    path: '/formulario-entregas',
+    redirect: '/formulario',
   },
   {
     path: '/home',
@@ -44,7 +54,7 @@ const routes = [
     path: '/configuracoes',
     name: 'Configuracoes',
     component: Configuracoes,
-    meta: { requiresAuth: true },
+    meta: { requiresAuth: true, requiresAdmin: true },
   },
 ];
 
@@ -60,6 +70,8 @@ router.beforeEach((to, _from, next: NavigationGuardNext) => {
 
   if (to.meta.requiresAuth && !authStore.isAuthenticated) {
     next({ name: 'Login' });
+  } else if (to.meta.requiresAdmin && !authStore.isAdmin) {
+    next({ name: 'Entregas' });
   } else {
     next();
   }

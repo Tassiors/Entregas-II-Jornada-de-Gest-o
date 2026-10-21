@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="relative h-screen overflow-hidden md:flex">
     <!-- Mobile Menu Header -->
     <div class="bg-paper-sidebar text-gray-100 flex justify-between md:hidden shrink-0">
@@ -8,7 +8,7 @@
       </button>
     </div>
 
-    <!-- Sidebar (ExpansÃ­vel / RecolhÃ­vel) -->
+    <!-- Sidebar (Expansível / Recolhível) -->
     <aside 
       :class="[
         sidebarOpen ? 'translate-x-0' : '-translate-x-full',
@@ -33,7 +33,7 @@
           <div class="border-t border-white border-opacity-20"></div>
         </div>
 
-        <!-- Links de NavegaÃ§Ã£o -->
+        <!-- Links de Navegação -->
         <nav class="space-y-2">
           <router-link 
             to="/" 
@@ -44,54 +44,35 @@
             <ChartBarIcon class="h-6 w-6 shrink-0 text-blue-300"/>
             <span v-if="!isCollapsed" class="truncate font-semibold">II Jornada</span>
           </router-link>
-          <router-link 
-            to="/" 
-            :title="isCollapsed ? 'InÃ­cio' : ''"
-            :class="[isCollapsed ? 'justify-center px-2' : 'px-4']"
-            class="flex items-center space-x-3 py-2.5 rounded transition duration-200 hover:bg-paper-active-link hover:text-white"
-          >
-            <HomeIcon class="h-6 w-6 shrink-0"/>
-            <span v-if="!isCollapsed" class="truncate">InÃ­cio</span>
-          </router-link>
 
           <router-link 
-            to="/componentes" 
-            :title="isCollapsed ? 'Componentes' : ''"
+            to="/formulario" 
+            :title="isCollapsed ? 'Formulário de Entregas' : ''"
             :class="[isCollapsed ? 'justify-center px-2' : 'px-4']"
             class="flex items-center space-x-3 py-2.5 rounded transition duration-200 hover:bg-paper-active-link hover:text-white"
           >
-            <CubeIcon class="h-6 w-6 shrink-0" />
-            <span v-if="!isCollapsed" class="truncate">Componentes</span>
+            <ClipboardDocumentCheckIcon class="h-6 w-6 shrink-0 text-emerald-300"/>
+            <span v-if="!isCollapsed" class="truncate font-semibold">Formulário de Entregas</span>
           </router-link>
 
+          <!-- Menu de Configuração Exclusivo para Administrador -->
           <router-link 
-            v-if="authStore.isAuthenticated" 
-            to="/exemplo" 
-            :title="isCollapsed ? 'Exemplo' : ''"
-            :class="[isCollapsed ? 'justify-center px-2' : 'px-4']"
-            class="flex items-center space-x-3 py-2.5 rounded transition duration-200 hover:bg-paper-active-link hover:text-white"
-          >
-            <DocumentTextIcon class="h-6 w-6 shrink-0" />
-            <span v-if="!isCollapsed" class="truncate">Exemplo</span>
-          </router-link>
-          
-          <router-link 
-            v-if="authStore.isAuthenticated" 
+            v-if="authStore.isAdmin" 
             to="/configuracoes" 
-            :title="isCollapsed ? 'ConfiguraÃ§Ãµes' : ''"
+            :title="isCollapsed ? 'Configurações' : ''"
             :class="[isCollapsed ? 'justify-center px-2' : 'px-4']"
             class="flex items-center space-x-3 py-2.5 rounded transition duration-200 hover:bg-paper-active-link hover:text-white"
           >
-            <Cog6ToothIcon class="h-6 w-6 shrink-0"/>
-            <span v-if="!isCollapsed" class="truncate">ConfiguraÃ§Ãµes</span>
+            <Cog6ToothIcon class="h-6 w-6 shrink-0 text-amber-300"/>
+            <span v-if="!isCollapsed" class="truncate font-semibold">Configurações</span>
           </router-link>
         </nav>
       </div>
 
-      <!-- RodapÃ© de VersÃ£o da Sidebar -->
+      <!-- Rodapé de Versão da Sidebar (SemVer Mandatório) -->
       <div v-if="!isCollapsed" class="px-4 pt-3 pb-1 border-t border-white/10 text-xs text-gray-400 mt-auto truncate transition-opacity duration-200">
         <p class="font-semibold text-gray-200 truncate">{{ APP_NAME }}</p>
-        <p class="text-[11px] text-gray-400 truncate">VersÃ£o {{ APP_VERSION }} | HC-UFPE</p>
+        <p class="text-[11px] text-gray-400 truncate">Versão {{ APP_VERSION }} | HC-UFPE</p>
       </div>
       <div v-else class="px-2 pt-3 pb-1 border-t border-white/10 text-[10px] text-center text-gray-400 mt-auto">
         v{{ APP_VERSION }}
@@ -130,9 +111,7 @@ import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import {
   ChartBarIcon,
-  HomeIcon,
-  CubeIcon,
-  DocumentTextIcon,
+  ClipboardDocumentCheckIcon,
   Cog6ToothIcon,
   CubeTransparentIcon,
   Bars3Icon,

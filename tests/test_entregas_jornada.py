@@ -1,4 +1,4 @@
-﻿import pytest
+import pytest
 from src.services.redcap_service import (
     process_records,
     get_project_summary,
@@ -80,3 +80,126 @@ def test_entregas_api_endpoints(client):
     dash_data = resp_dash.json()
     assert "summary" in dash_data
     assert "matrix" in dash_data
+
+
+def test_form_schema_endpoint(client):
+    resp = client.get("/api/v1/entregas-jornada/form-schema")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert "title" in data
+    assert "instructions" in data
+    assert "acknowledgement" in data
+    assert "projects" in data
+    assert "periods" in data
+    assert len(data["projects"]) == 5
+    assert len(data["periods"]) == 6
+
+
+def test_registro_existente_endpoint(client):
+    resp = client.get("/api/v1/entregas-jornada/registro-existente?projeto=0&periodo=0")
+    assert resp.status_code in (200, 502)
+    if resp.status_code == 200:
+        data = resp.json()
+        assert "exists" in data
+
+
+def test_formulario_validation_missing_fields(client):
+    # Envio com entrega não concluída ("1") e texto vazio deve falhar na validação (status 400)
+    payload_invalid = {
+        "projeto": "0",
+        "periodo": "0",
+        "ent1_conc": "1",
+        "ent1_txt": "",  # obrigatório quando não concluída
+        "ent2_conc": "1",
+        "ent2_txt": "Evolução ok",
+    }
+    resp = client.post("/api/v1/entregas-jornada/formulario", json=payload_invalid)
+    assert resp.status_code == 400
+    assert "Entrega 1" in resp.json()["detail"]
+
+    # Envio com entrega concluída ("0") e texto vazio deve ter sucesso (comentários opcionais após conclusão)
+    payload_valid_empty_comment = {
+        "projeto": "0",
+        "periodo": "0",
+        "ent1_conc": "0",
+        "ent1_txt": "",  # opcional quando concluída
+        "ent2_conc": "0",
+        "ent2_txt": "",  # opcional quando concluída
+    }
+    resp_ok = client.post("/api/v1/entregas-jornada/formulario", json=payload_valid_empty_comment)
+    assert resp_ok.status_code == 200
+
+
+def test_formulario_crud_and_cascade_local(client):
+    # 1. Cria ou salva formulário para o projeto 0 no período 0 marcando ambas como concluídas ("0")
+    payload = {
+        "projeto": "0",
+        "periodo": "0",
+        "ent1_conc": "0",
+        "ent1_txt": "Ação B0 finalizada",
+        "ent2_conc": "0",
+        "ent2_txt": "Ação B0 também finalizada",
+    }
+    resp_create = client.post("/api/v1/entregas-jornada/formulario", json=payload)
+    assert resp_create.status_code == 200
+    created_data = resp_create.json()
+    assert created_data["status"] == "success"
+    form_id = created_data["id"]
+
+    # 2. Leitura por ID
+    resp_get = client.get(f"/api/v1/entregas-jornada/formularios/{form_id}")
+    assert resp_get.status_code == 200
+    assert resp_get.json()["ent1_conc"] == "0"
+    assert resp_get.json()["ent2_conc"] == "0"
+
+    # 3. Consulta de registro existente no período subsequente (período 1)
+    resp_existente_b1 = client.get("/api/v1/entregas-jornada/registro-existente?projeto=0&periodo=1")
+    assert resp_existente_b1.status_code == 200
+    data_b1 = resp_existente_b1.json()
+    assert "cascade_info" in data_b1
+    assert data_b1["cascade_info"]["e1_concluida"] is True
+    assert data_b1["cascade_info"]["e2_concluida"] is True
+    # O formulário sugere diretamente "0" (concluída) herdado em cascata
+    assert data_b1["record"]["ent1_conc"] == "0"
+    assert data_b1["record"]["ent2_conc"] == "0"
+
+    # 4. Salva o período 1 com as entregas herdadas e comentários vazios (opcionais)
+    payload_b1 = {
+        "projeto": "0",
+        "periodo": "1",
+        "ent1_conc": "0",
+        "ent1_txt": "",
+        "ent2_conc": "0",
+        "ent2_txt": "",
+    }
+    resp_save_b1 = client.post("/api/v1/entregas-jornada/formulario", json=payload_b1)
+    assert resp_save_b1.status_code == 200
+
+    # 5. Verifica detalhamento do projeto e timeline: ambas continuam concluídas no período 1
+    resp_proj = client.get("/api/v1/entregas-jornada/projetos/0")
+    assert resp_proj.status_code == 200
+    proj_detail = resp_proj.json()
+    assert proj_detail["e1_done"] is True
+    assert proj_detail["e2_done"] is True
+    tl_b1 = next((item for item in proj_detail["timeline"] if item["periodo_code"] == "1"), None)
+    assert tl_b1 is not None
+    assert tl_b1["ent1_status"] == "Concluída"
+    assert tl_b1["ent2_status"] == "Concluída"
+
+
+    # 4. Atualização via PUT
+    update_payload = {
+        "projeto": "0",
+        "periodo": "0",
+        "ent1_conc": "0",
+        "ent1_txt": "Ação B0 finalizada e revisada",
+        "ent2_conc": "0",
+        "ent2_txt": "Ação B0 concluída agora",
+    }
+    resp_put = client.put(f"/api/v1/entregas-jornada/formularios/{form_id}", json=update_payload)
+    assert resp_put.status_code == 200
+
+    # 5. Exclusão via DELETE
+    resp_del = client.delete(f"/api/v1/entregas-jornada/formularios/{form_id}")
+    assert resp_del.status_code == 200
+    assert resp_del.json()["status"] == "success"

@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ODM xmlns="http://www.cdisc.org/ns/odm/v1.3" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:redcap="https://projectredcap.org" xsi:schemaLocation="http://www.cdisc.org/ns/odm/v1.3 schema/odm/ODM1-3-1.xsd" ODMVersion="1.3.1" FileOID="000-00-0000" FileType="Snapshot" Description="Entregas Jornada de Gestão 2026" AsOfDateTime="2026-10-21T09:53:13" CreationDateTime="2026-10-21T09:53:13" SourceSystem="REDCap" SourceSystemVersion="16.1.6">
+<Study OID="Project.EntregasJornadaDeGesto2026">
+<GlobalVariables>
+	<StudyName>Entregas Jornada de Gestão 2026</StudyName>
+	<StudyDescription>This file contains the metadata, events, and data for REDCap project "Entregas Jornada de Gestão 2026".</StudyDescription>
+	<ProtocolName>Entregas Jornada de Gestão 2026</ProtocolName>
+	<redcap:RecordAutonumberingEnabled>1</redcap:RecordAutonumberingEnabled>
+	<redcap:CustomRecordLabel>[var_periodo] [var_projeto]</redcap:CustomRecordLabel>
+	<redcap:SecondaryUniqueField></redcap:SecondaryUniqueField>
+	<redcap:SecondaryUniqueFieldDisplayValue>0</redcap:SecondaryUniqueFieldDisplayValue>
+	<redcap:SecondaryUniqueFieldDisplayLabel>0</redcap:SecondaryUniqueFieldDisplayLabel>
+	<redcap:SchedulingEnabled>0</redcap:SchedulingEnabled>
+	<redcap:SurveysEnabled>1</redcap:SurveysEnabled>
+	<redcap:SurveyInvitationEmailField></redcap:SurveyInvitationEmailField>
+	<redcap:SurveyParticipantIdentifiers>0</redcap:SurveyParticipantIdentifiers>
+	<redcap:RandomizationEnabled>0</redcap:RandomizationEnabled>
+	<redcap:DisplayTodayNowButton>1</redcap:DisplayTodayNowButton>
+	<redcap:PreventBranchingEraseValues>0</redcap:PreventBranchingEraseValues>
+	<redcap:RequireChangeReason>0</redcap:RequireChangeReason>
+	<redcap:DataHistoryPopup>1</redcap:DataHistoryPopup>
+	<redcap:OrderRecordsByField></redcap:OrderRecordsByField>
+	<redcap:taskCompleteStatus>2</redcap:taskCompleteStatus>
+	<redcap:DataResolutionWorkflowEnabled>1</redcap:DataResolutionWorkflowEnabled>
+	<redcap:FieldCommentLogOptionEditDelete>1</redcap:FieldCommentLogOptionEditDelete>
+	<redcap:DataResolutionWorkflowHideClosedQueries>0</redcap:DataResolutionWorkflowHideClosedQueries>
+	<redcap:MyCapEnabled>0</redcap:MyCapEnabled>
+	<redcap:Purpose>3</redcap:Purpose>
+	<redcap:PurposeOther></redcap:PurposeOther>
+	<redcap:ProjectNotes>Acompanhamento das entregas referentes aos projetos criados durante a Jornada de Gestão 2026</redcap:ProjectNotes>
+	<redcap:SurveyAuthEnabled>0</redcap:SurveyAuthEnabled>
+	<redcap:SurveyAuthField1></redcap:SurveyAuthField1>
+	<redcap:SurveyAuthEvent1></redcap:SurveyAuthEvent1>
+	<redcap:SurveyAuthField2></redcap:SurveyAuthField2>
+	<redcap:SurveyAuthEvent2></redcap:SurveyAuthEvent2>
+	<redcap:SurveyAuthField3></redcap:SurveyAuthField3>
+	<redcap:SurveyAuthEvent3></redcap:SurveyAuthEvent3>
+	<redcap:SurveyAuthMinFields></redcap:SurveyAuthMinFields>
+	<redcap:SurveyAuthApplyAllSurveys>1</redcap:SurveyAuthApplyAllSurveys>
+	<redcap:SurveyAuthCustomMessage></redcap:SurveyAuthCustomMessage>
+	<redcap:SurveyAuthFailLimit></redcap:SurveyAuthFailLimit>
+	<redcap:SurveyAuthFailWindow></redcap:SurveyAuthFailWindow>
+	<redcap:MissingDataCodes></redcap:MissingDataCodes>
+	<redcap:ProtectedEmailMode>0</redcap:ProtectedEmailMode>
+	<redcap:ProtectedEmailModeCustomText>REDCap Secure Messaging</redcap:ProtectedEmailModeCustomText>
+	<redcap:ProtectedEmailModeTrigger>ALL</redcap:ProtectedEmailModeTrigger>
+	<redcap:ProtectedEmailModeLogo></redcap:ProtectedEmailModeLogo>
+	<redcap:SurveysGroup>
+		<redcap:Surveys form_name="form_1" title="Acompanhamento Entregas II Jornada de Gestão" instructions="&lt;p&gt;Este formulário foi desenvolvido para apoiar o acompanhamento das entregas definidas durante a &lt;strong&gt;II Jornada de Gestão do HC-UFPE&lt;/strong&gt;, permitindo o registro, o monitoramento e a atualização do andamento das ações pactuadas.&lt;/p&gt;
+&lt;p&gt;A ferramenta busca facilitar o acompanhamento sistemático das entregas, contribuindo para maior transparência, organização e efetividade na execução das ações previstas.&lt;/p&gt;" offline_instructions="" acknowledgement="&lt;p&gt;&lt;strong&gt;Agradecimento&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Agradecemos a colaboração e o compromisso de todos os envolvidos no acompanhamento das entregas da &lt;strong&gt;II Jornada de Gestão do HC-UFPE&lt;/strong&gt;. A participação de cada gerente é fundamental para fortalecer a gestão, promover o cumprimento das ações pactuadas e contribuir para o alcance dos objetivos institucionais.&lt;/p&gt;" stop_action_acknowledgement="" stop_action_delete_response="0" question_by_section="0" display_page_number="0" question_auto_numbering="0" survey_enabled="1" save_and_return="1" save_and_return_code_bypass="0" logo="" hide_title="0" view_results="0" min_responses_view_results="10" check_diversity_view_results="0" end_survey_redirect_url="" survey_expiration="" promis_skip_question="0" survey_auth_enabled_single="0" edit_completed_response="1" hide_back_button="0" show_required_field_text="0" confirmation_email_subject="" confirmation_email_content="" confirmation_email_from="" confirmation_email_from_display="" confirmation_email_attach_pdf="0" confirmation_email_attachment="" text_to_speech="0" text_to_speech_language="en" end_survey_redirect_next_survey="0" end_survey_redirect_next_survey_logic="" theme="" text_size="1" font_family="16" custom_css="" theme_text_buttons="000000" theme_bg_page="eeeeee" theme_text_title="000000" theme_bg_title="FFFFFF" theme_text_sectionheader="FFFFFF" theme_bg_sectionheader="444444" theme_text_question="000000" theme_bg_question="FFFFFF" enhanced_choices="0" repeat_survey_enabled="0" repeat_survey_btn_text="" repeat_survey_btn_location="BEFORE_SUBMIT" response_limit="" response_limit_include_partials="1" response_limit_custom_text="&lt;p&gt;Thank you for your interest; however, the survey is closed because the maximum number of responses has been reached.&lt;/p&gt;" survey_time_limit_days="" survey_time_limit_hours="" survey_time_limit_minutes="" email_participant_field="" end_of_survey_pdf_download="1" pdf_save_to_field="" pdf_save_to_event_id="" pdf_save_translated="0" pdf_auto_archive="0" pdf_econsent_version="" pdf_econsent_type="" pdf_econsent_firstname_field="" pdf_econsent_firstname_event_id="" pdf_econsent_lastname_field="" pdf_econsent_lastname_event_id="" pdf_econsent_dob_field="" pdf_econsent_dob_event_id="" pdf_econsent_allow_edit="0" pdf_econsent_signature_field1="" pdf_econsent_signature_field2="" pdf_econsent_signature_field3="" pdf_econsent_signature_field4="" pdf_econsent_signature_field5="" survey_width_percent="" survey_show_font_resize="1" survey_btn_text_prev_page="" survey_btn_text_next_page="" survey_btn_text_submit="Enviar" survey_btn_hide_submit="0" survey_btn_hide_submit_logic=""/>
+	</redcap:SurveysGroup>
+	<redcap:UserRolesGroup>
+		<redcap:UserRoles role_name="adm" unique_role_name="U-265HKTJMWL" lock_record="0" lock_record_multiform="0" lock_record_customize="0" data_export_tool="" data_export_instruments="[form_1,1]" data_import_tool="1" data_comparison_tool="1" data_logging="1" email_logging="1" file_repository="1" double_data="0" user_rights="1" data_access_groups="1" graphical="1" reports="1" design="1" alerts="1" calendar="1" data_entry="[form_1,3]" api_export="1" api_import="1" api_modules="1" mobile_app="1" mobile_app_download_data="0" record_create="1" record_rename="1" record_delete="1" dts="0" participants="1" data_quality_design="1" data_quality_execute="1" data_quality_resolution="0" random_setup="0" random_dashboard="0" random_perform="0" realtime_webservice_mapping="0" realtime_webservice_adjudicate="0" external_module_config="" mycap_participants="0"/>
+	</redcap:UserRolesGroup>
+	<redcap:UserRoles2Group>
+		<redcap:UserRoles2 role_name="adm" unique_role_name="U-265HKTJMWL" lock_record="0" lock_record_multiform="0" lock_record_customize="0" data_export_tool="" data_export_instruments="[form_1,1]" data_import_tool="1" data_comparison_tool="1" data_logging="1" email_logging="1" file_repository="1" double_data="0" user_rights="1" data_access_groups="1" graphical="1" reports="1" design="1" alerts="1" calendar="1" data_entry="[form_1,138]" api_export="1" api_import="1" api_modules="1" mobile_app="1" mobile_app_download_data="0" record_create="1" record_rename="1" record_delete="1" dts="0" participants="1" data_quality_design="1" data_quality_execute="1" data_quality_resolution="0" random_setup="0" random_dashboard="0" random_perform="0" realtime_webservice_mapping="0" realtime_webservice_adjudicate="0" external_module_config="" mycap_participants="0"/>
+	</redcap:UserRoles2Group>
+	<redcap:ReportsGroup>
+		<redcap:Reports title="Acompanhamento Entregas II Jornada de Gestão HC-UFPE" unique_report_name="R-219AR4MFD7" report_order="1" user_access="ALL" user_edit_access="ALL" description="" combine_checkbox_values="0" output_dags="0" output_survey_fields="0" output_missing_data_codes="0" remove_line_breaks_in_values="1" orderby_field1="projeto" orderby_sort1="ASC" orderby_field2="" orderby_sort2="" orderby_field3="" orderby_sort3="" advanced_logic="" filter_type="EVENT" dynamic_filter1="periodo" dynamic_filter2="" dynamic_filter3="" hash="RL4XMDM3XN7YM4WT" short_url="" is_public="0" report_display_include_repeating_fields="1" report_display_header="BOTH" report_display_data="BOTH" password="" limiter_logic="" redcap_reports_fields="projeto,periodo,ent1_p1_txt,ent2_p1_txt,ent1_p1_conc,ent2_p1_conc,ent1_p2_txt,ent2_p2_txt,ent1_p2_conc,ent2_p2_conc,ent1_p3_txt,ent2_p3_txt,ent1_p3_conc,ent2_p3_conc,ent1_p4_txt,ent2_p4_txt,ent1_p4_conc,ent2_p4_conc,ent1_p5_txt,ent2_p5_txt,ent1_p5_conc,ent2_p5_conc,form_1_complete" redcap_reports_filter_dags="" redcap_reports_filter_events="" ID="cd44b052a3550003b57b99854ab73aa7bded2dd6"/>
+	</redcap:ReportsGroup>
+	<redcap:MultilanguageSettingsGroup>
+		<redcap:MultilanguageSettings settings="YToyMzp7czo3OiJ2ZXJzaW9uIjtzOjY6IjE2LjEuNiI7czo1OiJsYW5ncyI7YToxOntzOjI6InB0IjthOjEyOntzOjM6ImtleSI7czoyOiJwdCI7czo3OiJkaXNwbGF5IjtzOjEwOiJQb3J0dWd1ZXNlIjtzOjU6Im5vdGVzIjtzOjA6IiI7czo0OiJzb3J0IjtzOjA6IiI7czozOiJydGwiO2I6MDtzOjY6ImFjdGl2ZSI7YjoxO3M6MTI6Im15Y2FwLWFjdGl2ZSI7YjowO3M6MTA6InN1YnNjcmliZWQiO2I6MTtzOjc6InN5c2xhbmciO3M6MzY6IjI5N2ViNWE1LWE1NDQtNDBiNy1hNzM2LTJjZmRlZjBmNzlhNCI7czoxNDoicmVjYXB0Y2hhLWxhbmciO3M6MDoiIjtzOjI6ImRkIjthOjE6e3M6MTM6InN1cnZleS1hY3RpdmUiO2E6MTp7czo2OiJmb3JtXzEiO2E6MTp7czowOiIiO2E6Mjp7czoxMToidHJhbnNsYXRpb24iO3M6MToiMSI7czo3OiJyZWZIYXNoIjtOO319fX1zOjI6InVpIjthOjI1OntzOjk6ImFsZXJ0c18yNCI7YToyOntzOjExOiJ0cmFuc2xhdGlvbiI7czo1OiJBbGVydCI7czo3OiJyZWZIYXNoIjtzOjEwOiJiOTY5NjgwYTQ5Ijt9czoxNzoiY2FsZW5kYXJfcG9wdXBfMDEiO2E6Mjp7czoxMToidHJhbnNsYXRpb24iO3M6NToiQ2xvc2UiO3M6NzoicmVmSGFzaCI7czoxMDoiYmJmYTc3M2U1YSI7fXM6MTQ6ImRhdGFfZW50cnlfMjAzIjthOjI6e3M6MTE6InRyYW5zbGF0aW9uIjtzOjE0OiJWYWx1ZSByZW1vdmVkISI7czo3OiJyZWZIYXNoIjtzOjEwOiI5OGUyYmQ4YzQwIjt9czoxNDoiZGF0YV9lbnRyeV8yNjAiO2E6Mjp7czoxMToidHJhbnNsYXRpb24iO3M6MjM6IlR5cGUgdG8gYmVnaW4gc2VhcmNoaW5nIjtzOjc6InJlZkhhc2giO3M6MTA6ImM1MjVkYjc4OWEiO31zOjEzOiJkYXRhX2VudHJ5XzM5IjthOjI6e3M6MTE6InRyYW5zbGF0aW9uIjtzOjE4OiJDYW1wbyBvYnJpZ2F0w7NyaW8iO3M6NzoicmVmSGFzaCI7czoxMDoiNTY5YTUwMTM5YSI7fXM6MTQ6ImRhdGFfZW50cnlfNDAzIjthOjI6e3M6MTE6InRyYW5zbGF0aW9uIjtzOjE1OiJ3b3JkcyByZW1haW5pbmciO3M6NzoicmVmSGFzaCI7czoxMDoiOWE2ZTM0MDQ2ZSI7fXM6MTQ6ImRhdGFfZW50cnlfNDA0IjthOjI6e3M6MTE6InRyYW5zbGF0aW9uIjtzOjIwOiJjaGFyYWN0ZXJzIHJlbWFpbmluZyI7czo3OiJyZWZIYXNoIjtzOjEwOiI4NmVlZGFhYmY0Ijt9czoxNDoiZGF0YV9lbnRyeV81NDAiO2E6Mjp7czoxMToidHJhbnNsYXRpb24iO3M6MTY6IlsqREFUQSBSRU1PVkVEKl0iO3M6NzoicmVmSGFzaCI7czoxMDoiMmE5ZmM4ZWYyZCI7fXM6OToiZGVzaWduXzA4IjthOjI6e3M6MTE6InRyYW5zbGF0aW9uIjtzOjEwOiJXb3JraW5nLi4uIjtzOjc6InJlZkhhc2giO3M6MTA6Ijc1MDY1ZjFhNjYiO31zOjEwOiJkZXNpZ25fNjU0IjthOjI6e3M6MTE6InRyYW5zbGF0aW9uIjtzOjc6IkNvbmZpcm0iO3M6NzoicmVmSGFzaCI7czoxMDoiMDRhMjEyMjE1ZSI7fXM6MTY6ImZvcm1fcmVuZGVyZXJfMTkiO2E6Mjp7czoxMToidHJhbnNsYXRpb24iO3M6NjoiRXhwYW5kIjtzOjc6InJlZkhhc2giO3M6MTA6Ijk4NjllNTA2YzMiO31zOjE2OiJmb3JtX3JlbmRlcmVyXzIwIjthOjI6e3M6MTE6InRyYW5zbGF0aW9uIjtzOjU6InJlc2V0IjtzOjc6InJlZkhhc2giO3M6MTA6IjkxZWYwYzE2MDgiO31zOjE2OiJmb3JtX3JlbmRlcmVyXzIyIjthOjI6e3M6MTE6InRyYW5zbGF0aW9uIjtzOjEwOiJEaXNjbGFpbWVyIjtzOjc6InJlZkhhc2giO3M6MTA6IjRjNGEyZTgwY2MiO31zOjE2OiJmb3JtX3JlbmRlcmVyXzY2IjthOjI6e3M6MTE6InRyYW5zbGF0aW9uIjtzOjIzOiJUb2dnbGUgZnVsbCBzY3JlZW4gdmlldyI7czo3OiJyZWZIYXNoIjtzOjEwOiJmMGUyNTUwODAzIjt9czo5OiJnbG9iYWxfMDEiO2E6Mjp7czoxMToidHJhbnNsYXRpb24iO3M6NToiRVJST1IiO3M6NzoicmVmSGFzaCI7czoxMDoiMGI5OWNlYmU1NiI7fXM6OToiZ2xvYmFsXzAzIjthOjI6e3M6MTE6InRyYW5zbGF0aW9uIjtzOjY6Ik5PVElDRSI7czo3OiJyZWZIYXNoIjtzOjEwOiJmZTcxODcxMDgzIjt9czoxMDoiZ2xvYmFsXzEyNSI7YToyOntzOjExOiJ0cmFuc2xhdGlvbiI7czo2OiJVcGRhdGUiO3M6NzoicmVmSGFzaCI7czoxMDoiZmI5MWUyNGZhNSI7fXM6MTA6Imdsb2JhbF8xNDMiO2E6Mjp7czoxMToidHJhbnNsYXRpb24iO3M6NzoiQ2hlY2tlZCI7czo3OiJyZWZIYXNoIjtzOjEwOiJiMmJjMGMwMDVmIjt9czoxMDoiZ2xvYmFsXzE0NCI7YToyOntzOjExOiJ0cmFuc2xhdGlvbiI7czo5OiJVbmNoZWNrZWQiO3M6NzoicmVmSGFzaCI7czoxMDoiMWI5MjdkZWNkYiI7fXM6OToiZ2xvYmFsXzQ3IjthOjI6e3M6MTE6InRyYW5zbGF0aW9uIjtzOjI6Im9yIjtzOjc6InJlZkhhc2giO3M6MTA6IjE3NTgzNTZkYjIiO31zOjk6Imdsb2JhbF81MyI7YToyOntzOjExOiJ0cmFuc2xhdGlvbiI7czo2OiJDYW5jZWwiO3M6NzoicmVmSGFzaCI7czoxMDoiNzdkZmQyMTM1ZiI7fXM6OToiZ2xvYmFsXzY0IjthOjI6e3M6MTE6InRyYW5zbGF0aW9uIjtzOjQzOiJXb29wcyEgQW4gZXJyb3Igb2NjdXJyZWQuIFBsZWFzZSB0cnkgYWdhaW4uIjtzOjc6InJlZkhhc2giO3M6MTA6ImJmOGU0ZDJlMmIiO31zOjEyOiJtdWx0aWxhbmdfMDIiO2E6Mjp7czoxMToidHJhbnNsYXRpb24iO3M6MTU6IkNoYW5nZSBsYW5ndWFnZSI7czo3OiJyZWZIYXNoIjtzOjEwOiI3ODliMTRkZmE4Ijt9czoxMzoibXVsdGlsYW5nXzY0NyI7YToyOntzOjExOiJ0cmFuc2xhdGlvbiI7czo5NDoiTm90aWNlOiBUaGVyZSBtYXkgYmUgbW9yZSBhbmQvb3IgZGlmZmVyZW50IGxhbmd1YWdlcyBhdmFpbGFibGUgYWZ0ZXIgZW50ZXJpbmcgdGhlIGFjY2VzcyBjb2RlLiI7czo3OiJyZWZIYXNoIjtzOjEwOiJkNzk4MmQ4ZWI4Ijt9czoxMToic3VydmV5XzExNDAiO2E6Mjp7czoxMToidHJhbnNsYXRpb24iO3M6NToiaW1hZ2UiO3M6NzoicmVmSGFzaCI7czoxMDoiMGU3NjI5Mjc5NCI7fX19fXM6OToicHJvamVjdElkIjtzOjQ6IjY0NTUiO3M6MTU6ImRlc2lnbmF0ZWRGaWVsZCI7czowOiIiO3M6Njoic3RhdHVzIjtzOjM6ImRldiI7czo1OiJkZWJ1ZyI7YjowO3M6MTM6ImFkbWluLWVuYWJsZWQiO2I6MDtzOjE0OiJhZG1pbi1kaXNhYmxlZCI7YjowO3M6MTU6ImFsbG93LWZyb20tZmlsZSI7YjowO3M6MTg6ImFsbG93LWZyb20tc2NyYXRjaCI7YjowO3M6MjE6Im9wdGlvbmFsLXN1YnNjcmlwdGlvbiI7YjowO3M6MTg6ImFsbG93LXVpLW92ZXJyaWRlcyI7YjowO3M6NzoicmVmTGFuZyI7czoyOiJwdCI7czoxMjoiZmFsbGJhY2tMYW5nIjtzOjI6InB0IjtzOjg6ImRpc2FibGVkIjtiOjA7czoyNToiaGlnaGxpZ2h0TWlzc2luZ0RhdGFlbnRyeSI7YjowO3M6MjI6ImhpZ2hsaWdodE1pc3NpbmdTdXJ2ZXkiO2I6MDtzOjIxOiJhdXRvRGV0ZWN0QnJvd3NlckxhbmciO2I6MDtzOjEyOiJhbGVydFNvdXJjZXMiO2E6MDp7fXM6MTA6ImFzaVNvdXJjZXMiO2E6MDp7fXM6MTQ6ImV4Y2x1ZGVkQWxlcnRzIjthOjA6e31zOjE0OiJleGNsdWRlZEZpZWxkcyI7YTowOnt9czoxNjoiZXhjbHVkZWRTZXR0aW5ncyI7YTowOnt9fQ=="/>
+	</redcap:MultilanguageSettingsGroup>
+</GlobalVariables>
+<MetaDataVersion OID="Metadata.EntregasJornadaDeGesto2026_2026-10-21_0953" Name="Entregas Jornada de Gestão 2026" redcap:RecordIdField="record_id">
+	<FormDef OID="Form.form_1" Name="Form 1" Repeating="No" redcap:FormName="form_1">
+		<ItemGroupRef ItemGroupOID="form_1.record_id" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="form_1.form_1_complete" Mandatory="No"/>
+	</FormDef>
+	<ItemGroupDef OID="form_1.record_id" Name="Form 1" Repeating="No">
+		<ItemRef ItemOID="record_id" Mandatory="No" redcap:Variable="record_id"/>
+		<ItemRef ItemOID="projeto" Mandatory="Yes" redcap:Variable="projeto"/>
+		<ItemRef ItemOID="var_projeto" Mandatory="No" redcap:Variable="var_projeto"/>
+		<ItemRef ItemOID="periodo" Mandatory="Yes" redcap:Variable="periodo"/>
+		<ItemRef ItemOID="var_periodo" Mandatory="No" redcap:Variable="var_periodo"/>
+		<ItemRef ItemOID="p1_ent1" Mandatory="No" redcap:Variable="p1_ent1"/>
+		<ItemRef ItemOID="p1_ent2" Mandatory="No" redcap:Variable="p1_ent2"/>
+		<ItemRef ItemOID="ent1_p1" Mandatory="No" redcap:Variable="ent1_p1"/>
+		<ItemRef ItemOID="ent2_p1" Mandatory="No" redcap:Variable="ent2_p1"/>
+		<ItemRef ItemOID="ent1_p1_txt" Mandatory="Yes" redcap:Variable="ent1_p1_txt"/>
+		<ItemRef ItemOID="ent2_p1_txt" Mandatory="Yes" redcap:Variable="ent2_p1_txt"/>
+		<ItemRef ItemOID="ent1_p1_conc" Mandatory="No" redcap:Variable="ent1_p1_conc"/>
+		<ItemRef ItemOID="ent2_p1_conc" Mandatory="No" redcap:Variable="ent2_p1_conc"/>
+		<ItemRef ItemOID="p2_ent1" Mandatory="No" redcap:Variable="p2_ent1"/>
+		<ItemRef ItemOID="p2_ent2" Mandatory="No" redcap:Variable="p2_ent2"/>
+		<ItemRef ItemOID="ent1_p2" Mandatory="No" redcap:Variable="ent1_p2"/>
+		<ItemRef ItemOID="ent2_p2" Mandatory="No" redcap:Variable="ent2_p2"/>
+		<ItemRef ItemOID="ent1_p2_txt" Mandatory="Yes" redcap:Variable="ent1_p2_txt"/>
+		<ItemRef ItemOID="ent2_p2_txt" Mandatory="Yes" redcap:Variable="ent2_p2_txt"/>
+		<ItemRef ItemOID="ent1_p2_conc" Mandatory="No" redcap:Variable="ent1_p2_conc"/>
+		<ItemRef ItemOID="ent2_p2_conc" Mandatory="No" redcap:Variable="ent2_p2_conc"/>
+		<ItemRef ItemOID="p3_ent1" Mandatory="No" redcap:Variable="p3_ent1"/>
+		<ItemRef ItemOID="p3_ent2" Mandatory="No" redcap:Variable="p3_ent2"/>
+		<ItemRef ItemOID="ent1_p3" Mandatory="No" redcap:Variable="ent1_p3"/>
+		<ItemRef ItemOID="ent2_p3" Mandatory="No" redcap:Variable="ent2_p3"/>
+		<ItemRef ItemOID="ent1_p3_txt" Mandatory="Yes" redcap:Variable="ent1_p3_txt"/>
+		<ItemRef ItemOID="ent2_p3_txt" Mandatory="Yes" redcap:Variable="ent2_p3_txt"/>
+		<ItemRef ItemOID="ent1_p3_conc" Mandatory="No" redcap:Variable="ent1_p3_conc"/>
+		<ItemRef ItemOID="ent2_p3_conc" Mandatory="No" redcap:Variable="ent2_p3_conc"/>
+		<ItemRef ItemOID="p4_ent1" Mandatory="No" redcap:Variable="p4_ent1"/>
+		<ItemRef ItemOID="p4_ent2" Mandatory="No" redcap:Variable="p4_ent2"/>
+		<ItemRef ItemOID="ent1_p4" Mandatory="No" redcap:Variable="ent1_p4"/>
+		<ItemRef ItemOID="ent2_p4" Mandatory="No" redcap:Variable="ent2_p4"/>
+		<ItemRef ItemOID="ent1_p4_txt" Mandatory="Yes" redcap:Variable="ent1_p4_txt"/>
+		<ItemRef ItemOID="ent2_p4_txt" Mandatory="Yes" redcap:Variable="ent2_p4_txt"/>
+		<ItemRef ItemOID="ent1_p4_conc" Mandatory="No" redcap:Variable="ent1_p4_conc"/>
+		<ItemRef ItemOID="ent2_p4_conc" Mandatory="No" redcap:Variable="ent2_p4_conc"/>
+		<ItemRef ItemOID="p5_ent1" Mandatory="No" redcap:Variable="p5_ent1"/>
+		<ItemRef ItemOID="p5_ent2" Mandatory="No" redcap:Variable="p5_ent2"/>
+		<ItemRef ItemOID="ent1_p5" Mandatory="No" redcap:Variable="ent1_p5"/>
+		<ItemRef ItemOID="ent2_p5" Mandatory="No" redcap:Variable="ent2_p5"/>
+		<ItemRef ItemOID="ent1_p5_txt" Mandatory="Yes" redcap:Variable="ent1_p5_txt"/>
+		<ItemRef ItemOID="ent2_p5_txt" Mandatory="Yes" redcap:Variable="ent2_p5_txt"/>
+		<ItemRef ItemOID="ent1_p5_conc" Mandatory="No" redcap:Variable="ent1_p5_conc"/>
+		<ItemRef ItemOID="ent2_p5_conc" Mandatory="No" redcap:Variable="ent2_p5_conc"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="form_1.form_1_complete" Name="Form Status" Repeating="No">
+		<ItemRef ItemOID="form_1_complete" Mandatory="No" redcap:Variable="form_1_complete"/>
+	</ItemGroupDef>
+	<ItemDef OID="record_id" Name="record_id" DataType="text" Length="999" redcap:Variable="record_id" redcap:FieldType="text" redcap:FieldAnnotation="@HIDDEN">
+		<Question><TranslatedText>Record ID</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="projeto" Name="projeto" DataType="text" Length="1" redcap:Variable="projeto" redcap:FieldType="select" redcap:RequiredField="y" redcap:CustomAlignment="LH">
+		<Question><TranslatedText>Projeto</TranslatedText></Question>
+		<CodeListRef CodeListOID="projeto.choices"/>
+	</ItemDef>
+	<ItemDef OID="var_projeto" Name="var_projeto" DataType="text" Length="999" redcap:Variable="var_projeto" redcap:FieldType="text" redcap:FieldAnnotation="@HIDDEN
+@CALCTEXT(if(
+    [projeto] = &#039;0&#039;,
+    &#039; HC-UFPE 360°: Qualificação do Acesso e da Capacidade Assistencial&#039;,
+    if(
+        [projeto] = &#039;1&#039;,
+        &#039; Jornada do Paciente Centrada no Cuidado Humanizado&#039;,
+        if(
+            [projeto] = &#039;2&#039;,
+            &#039; Logística de Suprimentos para a Eficiência do Apoio Diagnóstico&#039;,
+            if(
+                [projeto] = &#039;3&#039;,
+                &#039; Valorização do Trabalhador e Bem-Estar no Trabalho&#039;,
+                if(
+                    [projeto] = &#039;4&#039;,
+                    &#039; Qualidade da Preceptoria e Integração Ensino-Assistência&#039;,
+                    &#039;&#039;
+                )
+            )
+        )
+    )
+))">
+		<Question><TranslatedText>var_projeto</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="periodo" Name="periodo" DataType="text" Length="1" redcap:Variable="periodo" redcap:FieldType="select" redcap:RequiredField="y" redcap:CustomAlignment="LH">
+		<Question><TranslatedText>Período</TranslatedText></Question>
+		<CodeListRef CodeListOID="periodo.choices"/>
+	</ItemDef>
+	<ItemDef OID="var_periodo" Name="var_periodo" DataType="text" Length="999" redcap:Variable="var_periodo" redcap:FieldType="text" redcap:CustomAlignment="LH" redcap:FieldAnnotation="@HIDDEN
+@CALCTEXT(if(
+    [periodo] = &#039;0&#039;,
+    &#039;Julho/Agosto 2025&#039;,
+    if(
+        [periodo] = &#039;1&#039;,
+        &#039;Setembro/Outubro 2025&#039;,
+        if(
+            [periodo] = &#039;2&#039;,
+            &#039;Novembro/Dezembro 2025&#039;,
+            if(
+                [periodo] = &#039;3&#039;,
+                &#039;Janeiro/Fevereiro 2026&#039;,
+                if(
+                    [periodo] = &#039;4&#039;,
+                    &#039;Março/Abril 2026&#039;,
+                    if(
+                        [periodo] = &#039;5&#039;,
+                        &#039;Maio/Junho 2026&#039;,
+                        &#039;&#039;
+                    )
+                )
+            )
+        )
+    )
+))">
+		<Question><TranslatedText>var_periodo</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="p1_ent1" Name="p1_ent1" DataType="text" Length="999" redcap:Variable="p1_ent1" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;0&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>   {ent1_p1} Concluído? {ent1_p1_conc}   {ent1_p1_txt}       </TranslatedText><redcap:FormattedTranslatedText>&lt;div class=&quot;rich-text-field-label&quot;&gt;&lt;table style=&quot;border-collapse: collapse; width: 100%; height: 60px;&quot; border=&quot;1&quot;&gt;&lt;colgroup&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3407%;&quot;&gt;&lt;/colgroup&gt; &lt;tbody&gt; &lt;tr style=&quot;height: 25px;&quot;&gt; &lt;td colspan=&quot;2&quot;&gt;{ent1_p1}&lt;/td&gt; &lt;td&gt;Concluído? {ent1_p1_conc}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 0px;&quot;&gt; &lt;td colspan=&quot;3&quot; rowspan=&quot;3&quot;&gt;{ent1_p1_txt}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 10px;&quot;&gt;&lt;/tr&gt; &lt;tr style=&quot;height: 25px;&quot;&gt;&lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt; &lt;/p&gt;&lt;/div&gt;</redcap:FormattedTranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="p1_ent2" Name="p1_ent2" DataType="text" Length="999" redcap:Variable="p1_ent2" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;0&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>   {ent2_p1} Concluído? {ent2_p1_conc}   {ent2_p1_txt}       </TranslatedText><redcap:FormattedTranslatedText>&lt;div class=&quot;rich-text-field-label&quot;&gt;&lt;table style=&quot;border-collapse: collapse; width: 100%; height: 60px;&quot; border=&quot;1&quot;&gt;&lt;colgroup&gt;&lt;col style=&quot;width: 33.3274%;&quot;&gt;&lt;col style=&quot;width: 33.3274%;&quot;&gt;&lt;col style=&quot;width: 33.3452%;&quot;&gt;&lt;/colgroup&gt; &lt;tbody&gt; &lt;tr style=&quot;height: 25px;&quot;&gt; &lt;td colspan=&quot;2&quot;&gt;{ent2_p1}&lt;/td&gt; &lt;td&gt;Concluído? {ent2_p1_conc}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 0px;&quot;&gt; &lt;td colspan=&quot;3&quot; rowspan=&quot;3&quot;&gt;{ent2_p1_txt}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 10px;&quot;&gt;&lt;/tr&gt; &lt;tr style=&quot;height: 25px;&quot;&gt;&lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt; &lt;/p&gt;&lt;/div&gt;</redcap:FormattedTranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent1_p1" Name="ent1_p1" DataType="text" Length="999" redcap:Variable="ent1_p1" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;0&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>Padronização dos Protocolos de perfis assistenciais, por clínica, de acesso, triagem e permanência.</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent2_p1" Name="ent2_p1" DataType="text" Length="999" redcap:Variable="ent2_p1" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;0&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>Governança e Estruturação da Regulação Interna.</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent1_p1_txt" Name="ent1_p1_txt" DataType="text" Length="999" redcap:Variable="ent1_p1_txt" redcap:FieldType="textarea" redcap:RequiredField="y" redcap:BranchingLogic="[projeto] = &#039;0&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH" redcap:FieldAnnotation="@PLACEHOLDER=&quot;Comentários/Evolução da entrega&quot;">
+		<Question><TranslatedText></TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent2_p1_txt" Name="ent2_p1_txt" DataType="text" Length="999" redcap:Variable="ent2_p1_txt" redcap:FieldType="textarea" redcap:RequiredField="y" redcap:BranchingLogic="[projeto] = &#039;0&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH" redcap:FieldAnnotation="@PLACEHOLDER=&quot;Comentários/Evolução da entrega&quot;">
+		<Question><TranslatedText></TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent1_p1_conc" Name="ent1_p1_conc" DataType="text" Length="1" redcap:Variable="ent1_p1_conc" redcap:FieldType="select" redcap:BranchingLogic="[projeto] = &#039;0&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH">
+		<Question><TranslatedText>Concluída</TranslatedText></Question>
+		<CodeListRef CodeListOID="ent1_p1_conc.choices"/>
+	</ItemDef>
+	<ItemDef OID="ent2_p1_conc" Name="ent2_p1_conc" DataType="text" Length="1" redcap:Variable="ent2_p1_conc" redcap:FieldType="select" redcap:BranchingLogic="[projeto] = &#039;0&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH">
+		<Question><TranslatedText>Concluída</TranslatedText></Question>
+		<CodeListRef CodeListOID="ent2_p1_conc.choices"/>
+	</ItemDef>
+	<ItemDef OID="p2_ent1" Name="p2_ent1" DataType="text" Length="999" redcap:Variable="p2_ent1" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;1&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>   {ent1_p2} Concluído? {ent1_p2_conc}   {ent1_p2_txt}       </TranslatedText><redcap:FormattedTranslatedText>&lt;div class=&quot;rich-text-field-label&quot;&gt;&lt;table style=&quot;border-collapse: collapse; width: 100%; height: 60px;&quot; border=&quot;1&quot;&gt;&lt;colgroup&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3407%;&quot;&gt;&lt;/colgroup&gt; &lt;tbody&gt; &lt;tr style=&quot;height: 25px;&quot;&gt; &lt;td colspan=&quot;2&quot;&gt;{ent1_p2}&lt;/td&gt; &lt;td&gt;Concluído? {ent1_p2_conc}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 0px;&quot;&gt; &lt;td colspan=&quot;3&quot; rowspan=&quot;3&quot;&gt;{ent1_p2_txt}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 10px;&quot;&gt;&lt;/tr&gt; &lt;tr style=&quot;height: 25px;&quot;&gt;&lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt; &lt;/p&gt;&lt;/div&gt;</redcap:FormattedTranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="p2_ent2" Name="p2_ent2" DataType="text" Length="999" redcap:Variable="p2_ent2" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;1&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>   {ent2_p2} Concluído? {ent2_p2_conc}   {ent2_p2_txt}       </TranslatedText><redcap:FormattedTranslatedText>&lt;div class=&quot;rich-text-field-label&quot;&gt;&lt;table style=&quot;border-collapse: collapse; width: 100%; height: 60px;&quot; border=&quot;1&quot;&gt;&lt;colgroup&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3407%;&quot;&gt;&lt;/colgroup&gt; &lt;tbody&gt; &lt;tr style=&quot;height: 25px;&quot;&gt; &lt;td colspan=&quot;2&quot;&gt;{ent2_p2}&lt;/td&gt; &lt;td&gt;Concluído? {ent2_p2_conc}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 0px;&quot;&gt; &lt;td colspan=&quot;3&quot; rowspan=&quot;3&quot;&gt;{ent2_p2_txt}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 10px;&quot;&gt;&lt;/tr&gt; &lt;tr style=&quot;height: 25px;&quot;&gt;&lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt; &lt;/p&gt;&lt;/div&gt;</redcap:FormattedTranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent1_p2" Name="ent1_p2" DataType="text" Length="999" redcap:Variable="ent1_p2" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;1&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>Fluxos institucionais de resposta para cada categoria de cancelamento de consulta.</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent2_p2" Name="ent2_p2" DataType="text" Length="999" redcap:Variable="ent2_p2" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;1&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>Solução para confirmação prévia de consultas e procedimentos.</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent1_p2_txt" Name="ent1_p2_txt" DataType="text" Length="999" redcap:Variable="ent1_p2_txt" redcap:FieldType="textarea" redcap:RequiredField="y" redcap:BranchingLogic="[projeto] = &#039;1&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH" redcap:FieldAnnotation="@PLACEHOLDER=&quot;Comentários/Evolução da entrega&quot;">
+		<Question><TranslatedText></TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent2_p2_txt" Name="ent2_p2_txt" DataType="text" Length="999" redcap:Variable="ent2_p2_txt" redcap:FieldType="textarea" redcap:RequiredField="y" redcap:BranchingLogic="[projeto] = &#039;1&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH" redcap:FieldAnnotation="@PLACEHOLDER=&quot;Comentários/Evolução da entrega&quot;">
+		<Question><TranslatedText></TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent1_p2_conc" Name="ent1_p2_conc" DataType="text" Length="1" redcap:Variable="ent1_p2_conc" redcap:FieldType="select" redcap:BranchingLogic="[projeto] = &#039;1&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH">
+		<Question><TranslatedText>Concluída</TranslatedText></Question>
+		<CodeListRef CodeListOID="ent1_p2_conc.choices"/>
+	</ItemDef>
+	<ItemDef OID="ent2_p2_conc" Name="ent2_p2_conc" DataType="text" Length="1" redcap:Variable="ent2_p2_conc" redcap:FieldType="select" redcap:BranchingLogic="[projeto] = &#039;1&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH">
+		<Question><TranslatedText>Concluída</TranslatedText></Question>
+		<CodeListRef CodeListOID="ent2_p2_conc.choices"/>
+	</ItemDef>
+	<ItemDef OID="p3_ent1" Name="p3_ent1" DataType="text" Length="999" redcap:Variable="p3_ent1" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;2&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>   {ent1_p3} Concluído? {ent1_p3_conc}   {ent1_p3_txt}       </TranslatedText><redcap:FormattedTranslatedText>&lt;div class=&quot;rich-text-field-label&quot;&gt;&lt;table style=&quot;border-collapse: collapse; width: 100%; height: 60px;&quot; border=&quot;1&quot;&gt;&lt;colgroup&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3407%;&quot;&gt;&lt;/colgroup&gt; &lt;tbody&gt; &lt;tr style=&quot;height: 25px;&quot;&gt; &lt;td colspan=&quot;2&quot;&gt;{ent1_p3}&lt;/td&gt; &lt;td&gt;Concluído? {ent1_p3_conc}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 0px;&quot;&gt; &lt;td colspan=&quot;3&quot; rowspan=&quot;3&quot;&gt;{ent1_p3_txt}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 10px;&quot;&gt;&lt;/tr&gt; &lt;tr style=&quot;height: 25px;&quot;&gt;&lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt; &lt;/p&gt;&lt;/div&gt;</redcap:FormattedTranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="p3_ent2" Name="p3_ent2" DataType="text" Length="999" redcap:Variable="p3_ent2" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;2&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>   {ent2_p3} Concluído? {ent2_p3_conc}   {ent2_p3_txt}       </TranslatedText><redcap:FormattedTranslatedText>&lt;div class=&quot;rich-text-field-label&quot;&gt;&lt;table style=&quot;border-collapse: collapse; width: 100%; height: 60px;&quot; border=&quot;1&quot;&gt;&lt;colgroup&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3407%;&quot;&gt;&lt;/colgroup&gt; &lt;tbody&gt; &lt;tr style=&quot;height: 25px;&quot;&gt; &lt;td colspan=&quot;2&quot;&gt;{ent2_p3}&lt;/td&gt; &lt;td&gt;Concluído? {ent2_p3_conc}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 0px;&quot;&gt; &lt;td colspan=&quot;3&quot; rowspan=&quot;3&quot;&gt;{ent2_p3_txt}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 10px;&quot;&gt;&lt;/tr&gt; &lt;tr style=&quot;height: 25px;&quot;&gt;&lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt; &lt;/p&gt;&lt;/div&gt;</redcap:FormattedTranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent1_p3" Name="ent1_p3" DataType="text" Length="999" redcap:Variable="ent1_p3" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;2&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>Criação de comitê temporário para governança da comunicação da cadeia de suprimentos.</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent2_p3" Name="ent2_p3" DataType="text" Length="999" redcap:Variable="ent2_p3" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;2&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>Ferramenta para divulgação das informações da cadeia da comunicação.</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent1_p3_txt" Name="ent1_p3_txt" DataType="text" Length="999" redcap:Variable="ent1_p3_txt" redcap:FieldType="textarea" redcap:RequiredField="y" redcap:BranchingLogic="[projeto] = &#039;2&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH" redcap:FieldAnnotation="@PLACEHOLDER=&quot;Comentários/Evolução da entrega&quot;">
+		<Question><TranslatedText></TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent2_p3_txt" Name="ent2_p3_txt" DataType="text" Length="999" redcap:Variable="ent2_p3_txt" redcap:FieldType="textarea" redcap:RequiredField="y" redcap:BranchingLogic="[projeto] = &#039;2&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH" redcap:FieldAnnotation="@PLACEHOLDER=&quot;Comentários/Evolução da entrega&quot;">
+		<Question><TranslatedText></TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent1_p3_conc" Name="ent1_p3_conc" DataType="text" Length="1" redcap:Variable="ent1_p3_conc" redcap:FieldType="select" redcap:BranchingLogic="[projeto] = &#039;2&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH">
+		<Question><TranslatedText>Concluída</TranslatedText></Question>
+		<CodeListRef CodeListOID="ent1_p3_conc.choices"/>
+	</ItemDef>
+	<ItemDef OID="ent2_p3_conc" Name="ent2_p3_conc" DataType="text" Length="1" redcap:Variable="ent2_p3_conc" redcap:FieldType="select" redcap:BranchingLogic="[projeto] = &#039;2&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH">
+		<Question><TranslatedText>Concluída</TranslatedText></Question>
+		<CodeListRef CodeListOID="ent2_p3_conc.choices"/>
+	</ItemDef>
+	<ItemDef OID="p4_ent1" Name="p4_ent1" DataType="text" Length="999" redcap:Variable="p4_ent1" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;3&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>   {ent1_p4} Concluído? {ent1_p4_conc}   {ent1_p4_txt}       </TranslatedText><redcap:FormattedTranslatedText>&lt;div class=&quot;rich-text-field-label&quot;&gt;&lt;table style=&quot;border-collapse: collapse; width: 100%; height: 60px;&quot; border=&quot;1&quot;&gt;&lt;colgroup&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3407%;&quot;&gt;&lt;/colgroup&gt; &lt;tbody&gt; &lt;tr style=&quot;height: 25px;&quot;&gt; &lt;td colspan=&quot;2&quot;&gt;{ent1_p4}&lt;/td&gt; &lt;td&gt;Concluído? {ent1_p4_conc}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 0px;&quot;&gt; &lt;td colspan=&quot;3&quot; rowspan=&quot;3&quot;&gt;{ent1_p4_txt}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 10px;&quot;&gt;&lt;/tr&gt; &lt;tr style=&quot;height: 25px;&quot;&gt;&lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt; &lt;/p&gt;&lt;/div&gt;</redcap:FormattedTranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="p4_ent2" Name="p4_ent2" DataType="text" Length="999" redcap:Variable="p4_ent2" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;3&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>   {ent2_p4} Concluído? {ent2_p4_conc}   {ent2_p4_txt}       </TranslatedText><redcap:FormattedTranslatedText>&lt;div class=&quot;rich-text-field-label&quot;&gt;&lt;table style=&quot;border-collapse: collapse; width: 100%; height: 60px;&quot; border=&quot;1&quot;&gt;&lt;colgroup&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3407%;&quot;&gt;&lt;/colgroup&gt; &lt;tbody&gt; &lt;tr style=&quot;height: 25px;&quot;&gt; &lt;td colspan=&quot;2&quot;&gt;{ent2_p4}&lt;/td&gt; &lt;td&gt;Concluído? {ent2_p4_conc}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 0px;&quot;&gt; &lt;td colspan=&quot;3&quot; rowspan=&quot;3&quot;&gt;{ent2_p4_txt}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 10px;&quot;&gt;&lt;/tr&gt; &lt;tr style=&quot;height: 25px;&quot;&gt;&lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt; &lt;/p&gt;&lt;/div&gt;</redcap:FormattedTranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent1_p4" Name="ent1_p4" DataType="text" Length="999" redcap:Variable="ent1_p4" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;3&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>Diagnóstico da Pesquisa de Clima</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent2_p4" Name="ent2_p4" DataType="text" Length="999" redcap:Variable="ent2_p4" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;3&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>Banco de movimentação interna</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent1_p4_txt" Name="ent1_p4_txt" DataType="text" Length="999" redcap:Variable="ent1_p4_txt" redcap:FieldType="textarea" redcap:RequiredField="y" redcap:BranchingLogic="[projeto] = &#039;3&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH" redcap:FieldAnnotation="@PLACEHOLDER=&quot;Comentários/Evolução da entrega&quot;">
+		<Question><TranslatedText></TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent2_p4_txt" Name="ent2_p4_txt" DataType="text" Length="999" redcap:Variable="ent2_p4_txt" redcap:FieldType="textarea" redcap:RequiredField="y" redcap:BranchingLogic="[projeto] = &#039;3&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH" redcap:FieldAnnotation="@PLACEHOLDER=&quot;Comentários/Evolução da entrega&quot;">
+		<Question><TranslatedText></TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent1_p4_conc" Name="ent1_p4_conc" DataType="text" Length="1" redcap:Variable="ent1_p4_conc" redcap:FieldType="select" redcap:BranchingLogic="[projeto] = &#039;3&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH">
+		<Question><TranslatedText>Concluída</TranslatedText></Question>
+		<CodeListRef CodeListOID="ent1_p4_conc.choices"/>
+	</ItemDef>
+	<ItemDef OID="ent2_p4_conc" Name="ent2_p4_conc" DataType="text" Length="1" redcap:Variable="ent2_p4_conc" redcap:FieldType="select" redcap:BranchingLogic="[projeto] = &#039;3&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH">
+		<Question><TranslatedText>Concluída</TranslatedText></Question>
+		<CodeListRef CodeListOID="ent2_p4_conc.choices"/>
+	</ItemDef>
+	<ItemDef OID="p5_ent1" Name="p5_ent1" DataType="text" Length="999" redcap:Variable="p5_ent1" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;4&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>   {ent1_p5} Concluído? {ent1_p5_conc}   {ent1_p5_txt}       </TranslatedText><redcap:FormattedTranslatedText>&lt;div class=&quot;rich-text-field-label&quot;&gt;&lt;table style=&quot;border-collapse: collapse; width: 100%; height: 60px;&quot; border=&quot;1&quot;&gt;&lt;colgroup&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3407%;&quot;&gt;&lt;/colgroup&gt; &lt;tbody&gt; &lt;tr style=&quot;height: 25px;&quot;&gt; &lt;td colspan=&quot;2&quot;&gt;{ent1_p5}&lt;/td&gt; &lt;td&gt;Concluído? {ent1_p5_conc}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 0px;&quot;&gt; &lt;td colspan=&quot;3&quot; rowspan=&quot;3&quot;&gt;{ent1_p5_txt}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 10px;&quot;&gt;&lt;/tr&gt; &lt;tr style=&quot;height: 25px;&quot;&gt;&lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt; &lt;/p&gt;&lt;/div&gt;</redcap:FormattedTranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="p5_ent2" Name="p5_ent2" DataType="text" Length="999" redcap:Variable="p5_ent2" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;4&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>   {ent2_p5} Concluído? {ent2_p5_conc}   {ent2_p5_txt}       </TranslatedText><redcap:FormattedTranslatedText>&lt;div class=&quot;rich-text-field-label&quot;&gt;&lt;table style=&quot;border-collapse: collapse; width: 100%; height: 60px;&quot; border=&quot;1&quot;&gt;&lt;colgroup&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3296%;&quot;&gt;&lt;col style=&quot;width: 33.3407%;&quot;&gt;&lt;/colgroup&gt; &lt;tbody&gt; &lt;tr style=&quot;height: 25px;&quot;&gt; &lt;td colspan=&quot;2&quot;&gt;{ent2_p5}&lt;/td&gt; &lt;td&gt;Concluído? {ent2_p5_conc}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 0px;&quot;&gt; &lt;td colspan=&quot;3&quot; rowspan=&quot;3&quot;&gt;{ent2_p5_txt}&lt;/td&gt; &lt;/tr&gt; &lt;tr style=&quot;height: 10px;&quot;&gt;&lt;/tr&gt; &lt;tr style=&quot;height: 25px;&quot;&gt;&lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt; &lt;/p&gt;&lt;/div&gt;</redcap:FormattedTranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent1_p5" Name="ent1_p5" DataType="text" Length="999" redcap:Variable="ent1_p5" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;4&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>I Fórum de Boas Práticas em Preceptoria</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent2_p5" Name="ent2_p5" DataType="text" Length="999" redcap:Variable="ent2_p5" redcap:FieldType="descriptive" redcap:BranchingLogic="[projeto] = &#039;4&#039; and [periodo]&lt;&gt;&#039;&#039;">
+		<Question><TranslatedText>Capacitação obrigatória e direcionada, específica para gestores para funcionarem como facilitadores de planejamento em formação em preceptoria.</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent1_p5_txt" Name="ent1_p5_txt" DataType="text" Length="999" redcap:Variable="ent1_p5_txt" redcap:FieldType="textarea" redcap:RequiredField="y" redcap:BranchingLogic="[projeto] = &#039;4&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH" redcap:FieldAnnotation="@PLACEHOLDER=&quot;Comentários/Evolução da entrega&quot;">
+		<Question><TranslatedText></TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent2_p5_txt" Name="ent2_p5_txt" DataType="text" Length="999" redcap:Variable="ent2_p5_txt" redcap:FieldType="textarea" redcap:RequiredField="y" redcap:BranchingLogic="[projeto] = &#039;4&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH" redcap:FieldAnnotation="@PLACEHOLDER=&quot;Comentários/Evolução da entrega&quot;">
+		<Question><TranslatedText></TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="ent1_p5_conc" Name="ent1_p5_conc" DataType="text" Length="1" redcap:Variable="ent1_p5_conc" redcap:FieldType="select" redcap:BranchingLogic="[projeto] = &#039;4&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH">
+		<Question><TranslatedText>Concluída</TranslatedText></Question>
+		<CodeListRef CodeListOID="ent1_p5_conc.choices"/>
+	</ItemDef>
+	<ItemDef OID="ent2_p5_conc" Name="ent2_p5_conc" DataType="text" Length="1" redcap:Variable="ent2_p5_conc" redcap:FieldType="select" redcap:BranchingLogic="[projeto] = &#039;4&#039; and [periodo]&lt;&gt;&#039;&#039;" redcap:CustomAlignment="LH">
+		<Question><TranslatedText>Concluída</TranslatedText></Question>
+		<CodeListRef CodeListOID="ent2_p5_conc.choices"/>
+	</ItemDef>
+	<ItemDef OID="form_1_complete" Name="form_1_complete" DataType="text" Length="1" redcap:Variable="form_1_complete" redcap:FieldType="select" redcap:SectionHeader="Form Status">
+		<Question><TranslatedText>Complete?</TranslatedText></Question>
+		<CodeListRef CodeListOID="form_1_complete.choices"/>
+	</ItemDef>
+	<CodeList OID="projeto.choices" Name="projeto" DataType="text" redcap:Variable="projeto">
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>P1 - HC-UFPE 360°: Qualificação do Acesso e da Capacidade Assistencial</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>P2 - Jornada do Paciente Centrada no Cuidado Humanizado</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="2"><Decode><TranslatedText>P3 - Logística de Suprimentos para a Eficiência do Apoio Diagnóstico</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="3"><Decode><TranslatedText>P4 - Valorização do Trabalhador e Bem-Estar no Trabalho</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="4"><Decode><TranslatedText>P5 - Qualidade da Preceptoria e Integração Ensino-Assistência</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+	<CodeList OID="periodo.choices" Name="periodo" DataType="text" redcap:Variable="periodo">
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>Julho/Agosto 2026</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Setembro/Outubro 2026</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="2"><Decode><TranslatedText>Novembro/Dezembro 2026</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="3"><Decode><TranslatedText>Janeiro/Fevereiro 2027</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="4"><Decode><TranslatedText>Março/Abril 2027</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="5"><Decode><TranslatedText>Maio/Junho 2027</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+	<CodeList OID="ent1_p1_conc.choices" Name="ent1_p1_conc" DataType="text" redcap:Variable="ent1_p1_conc">
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>Sim</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Não</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+	<CodeList OID="ent2_p1_conc.choices" Name="ent2_p1_conc" DataType="text" redcap:Variable="ent2_p1_conc">
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>Sim</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Não</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+	<CodeList OID="ent1_p2_conc.choices" Name="ent1_p2_conc" DataType="text" redcap:Variable="ent1_p2_conc">
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>Sim</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Não</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+	<CodeList OID="ent2_p2_conc.choices" Name="ent2_p2_conc" DataType="text" redcap:Variable="ent2_p2_conc">
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>Sim</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Não</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+	<CodeList OID="ent1_p3_conc.choices" Name="ent1_p3_conc" DataType="text" redcap:Variable="ent1_p3_conc">
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>Sim</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Não</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+	<CodeList OID="ent2_p3_conc.choices" Name="ent2_p3_conc" DataType="text" redcap:Variable="ent2_p3_conc">
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>Sim</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Não</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+	<CodeList OID="ent1_p4_conc.choices" Name="ent1_p4_conc" DataType="text" redcap:Variable="ent1_p4_conc">
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>Sim</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Não</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+	<CodeList OID="ent2_p4_conc.choices" Name="ent2_p4_conc" DataType="text" redcap:Variable="ent2_p4_conc">
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>Sim</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Não</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+	<CodeList OID="ent1_p5_conc.choices" Name="ent1_p5_conc" DataType="text" redcap:Variable="ent1_p5_conc">
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>Sim</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Não</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+	<CodeList OID="ent2_p5_conc.choices" Name="ent2_p5_conc" DataType="text" redcap:Variable="ent2_p5_conc">
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>Sim</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Não</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+	<CodeList OID="form_1_complete.choices" Name="form_1_complete" DataType="text" redcap:Variable="form_1_complete">
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>Incomplete</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Unverified</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="2"><Decode><TranslatedText>Complete</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+</MetaDataVersion>
+</Study>
+</ODM>
